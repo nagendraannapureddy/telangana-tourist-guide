@@ -4,6 +4,14 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
+export interface PlaceMetadata {
+  name: string;
+  name_en: string;
+  category: string;
+  state: string;
+  district: string;
+}
+
 export async function getPlaceContent(
   category: string,
   slug: string
@@ -25,12 +33,14 @@ export async function getPlaceContent(
     .process(content);
 
   return {
-    frontMatter: data,
+    frontMatter: data as PlaceMetadata,
     contentHtml: processedContent.toString(),
   };
 }
 
-export function getPlacesByCategory(category: string) {
+export function getPlacesByCategory(
+  category: string
+): (PlaceMetadata & { slug: string })[] {
   const directory = path.join(
     process.cwd(),
     "content",
@@ -50,7 +60,7 @@ export function getPlacesByCategory(category: string) {
 
       return {
         slug: file.replace(".md", ""),
-        ...data,
+        ...(data as PlaceMetadata),
       };
     });
 }
