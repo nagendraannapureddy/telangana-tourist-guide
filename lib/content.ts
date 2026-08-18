@@ -48,6 +48,10 @@ export function getPlacesByCategory(
     category
   );
 
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+
   const files = fs.readdirSync(directory);
 
   return files
