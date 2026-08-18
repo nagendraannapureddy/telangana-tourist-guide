@@ -59,17 +59,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="rounded-xl border p-6 shadow-sm">
-            <div className="text-4xl">🏛️</div>
+          <Link
+  href="/historical"
+  className="rounded-xl border p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+>
+  <div className="text-4xl">🏛️</div>
 
-            <h3 className="mt-4 text-xl font-semibold">
-              Historical Places
-            </h3>
+  <h3 className="mt-4 text-xl font-semibold">
+    Historical Places
+  </h3>
 
-            <p className="mt-2 text-gray-600">
-              Explore forts, monuments and historical sites.
-            </p>
-          </div>
+  <p className="mt-2 text-gray-600">
+    Explore forts, monuments and historical sites.
+  </p>
+
+  <p className="mt-4 font-semibold text-green-700">
+    Explore Historical Places →
+  </p>
+</Link>
 
           <div className="rounded-xl border p-6 shadow-sm">
             <div className="text-4xl">🌊</div>
