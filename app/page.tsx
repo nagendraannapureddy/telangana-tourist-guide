@@ -424,7 +424,7 @@ export default function Home() {
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
 
-              {temples.slice(0, 3).map((temple) => (
+              {temples.map((temple) => (
                 <Link
                   key={temple.slug}
                   href={`/places/${temple.slug}`}
