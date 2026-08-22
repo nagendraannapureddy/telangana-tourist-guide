@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getPlacesByCategory } from "@/lib/content";
 
 export default function Home() {
@@ -8,7 +9,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* Navigation */}
+      {/* =====================================================
+          NAVIGATION
+      ===================================================== */}
+
       <header className="absolute left-0 right-0 top-0 z-50">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-white">
 
@@ -51,100 +55,130 @@ export default function Home() {
 
           </div>
 
-          <div className="flex items-center gap-5 text-lg">
-            <span>🌐</span>
-            <span>⌕</span>
-            <span>♡</span>
-          </div>
-
         </nav>
       </header>
 
 
-      {/* Hero */}
-      <section
-        className="relative flex min-h-screen items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.50)), url('/india-hero.jpg')",
-        }}
-      >
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
-        <div className="mx-auto max-w-4xl px-6 pt-20 text-center text-white">
+      <section className="relative min-h-[760px] overflow-hidden bg-slate-900">
 
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/90">
-            Travel • Discover • Experience
-          </p>
+        <Image
+          src="/india-hero.jpg"
+          alt="Beautiful Indian heritage destination"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
 
-          <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">
-            Discover the Beauty
-            <span className="block text-yellow-400">
-              Around You
-            </span>
-          </h1>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/90 md:text-xl">
-            Explore India's diverse cultures, breathtaking landscapes,
-            ancient heritage and unforgettable destinations.
-          </p>
+        {/* Hero content */}
+        <div className="relative z-10 flex min-h-[760px] items-center justify-center px-6 pb-28 pt-24">
 
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
+          <div className="max-w-5xl text-center text-white">
 
-            <Link
-              href="/historical"
-              className="rounded-md bg-red-500 px-7 py-3.5 font-semibold text-white shadow-lg transition hover:bg-red-600"
-            >
-              Explore Destinations
-            </Link>
+            <p className="text-sm font-bold uppercase tracking-[0.35em] text-white">
+              Travel • Discover • Experience
+            </p>
 
-            <a
-              href="#categories"
-              className="rounded-md border border-white/70 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Explore Experiences
-            </a>
+            <h1 className="mt-6 text-5xl font-extrabold leading-tight md:text-7xl">
+              Discover the Beauty
+              <br />
+              <span className="text-yellow-400">
+                Around You
+              </span>
+            </h1>
+
+            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-white/90 md:text-xl">
+              Explore India&apos;s diverse cultures, breathtaking landscapes,
+              ancient heritage and unforgettable destinations.
+            </p>
+
+            <div className="mt-9 flex flex-wrap justify-center gap-4">
+
+              <Link
+                href="/historical"
+                className="rounded-lg bg-red-500 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-red-600"
+              >
+                Explore Destinations
+              </Link>
+
+              <a
+                href="#experiences"
+                className="rounded-lg border border-white/70 bg-black/20 px-8 py-4 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+              >
+                Explore Experiences
+              </a>
+
+            </div>
 
           </div>
 
         </div>
 
 
-        {/* Floating category bar */}
-        <div className="absolute bottom-8 left-1/2 w-[90%] max-w-5xl -translate-x-1/2">
+        {/* =====================================================
+            CATEGORY BAR
+        ===================================================== */}
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-full bg-white px-6 py-4 text-sm font-medium text-slate-700 shadow-2xl">
+        <div className="absolute bottom-8 left-1/2 z-20 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2">
 
-            <a href="#india" className="hover:text-red-500">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full bg-white px-6 py-4 text-sm font-medium text-slate-600 shadow-xl md:gap-x-7">
+
+            <a
+              href="#"
+              className="transition hover:text-red-500"
+            >
               India 360
             </a>
 
-            <span className="text-slate-300">|</span>
+            <span className="hidden h-5 w-px bg-slate-300 md:block" />
 
-            <a href="#adventure" className="hover:text-red-500">
+            <a
+              href="#experiences"
+              className="transition hover:text-red-500"
+            >
               Adventure
             </a>
 
-            <span className="text-slate-300">|</span>
+            <span className="hidden h-5 w-px bg-slate-300 md:block" />
 
-            <a href="#nature" className="hover:text-red-500">
+            <a
+              href="#categories"
+              className="transition hover:text-red-500"
+            >
               Nature
             </a>
 
-            <span className="text-slate-300">|</span>
+            <span className="hidden h-5 w-px bg-slate-300 md:block" />
 
-            <a href="#wildlife" className="hover:text-red-500">
+            <a
+              href="#categories"
+              className="transition hover:text-red-500"
+            >
               Wildlife
             </a>
 
-            <span className="text-slate-300">|</span>
+            <span className="hidden h-5 w-px bg-slate-300 md:block" />
 
-            <a href="#heritage" className="hover:text-red-500">
+            <a
+              href="#experiences"
+              className="transition hover:text-red-500"
+            >
               Heritage
             </a>
 
-            <span className="text-slate-300">|</span>
+            <span className="hidden h-5 w-px bg-slate-300 md:block" />
 
-            <a href="#spiritual" className="hover:text-red-500">
+            <a
+              href="#temples"
+              className="transition hover:text-red-500"
+            >
               Spiritual
             </a>
 
@@ -155,26 +189,25 @@ export default function Home() {
       </section>
 
 
-      {/* Introduction */}
-      <section
-        id="experiences"
-        className="bg-white px-6 py-20"
-      >
+      {/* =====================================================
+          INTRODUCTION
+      ===================================================== */}
 
-        <div className="mx-auto max-w-6xl text-center">
+      <section className="bg-white px-6 py-20">
 
-          <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
-            Explore India
+        <div className="mx-auto max-w-5xl text-center">
+
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-red-500">
+            Discover Telangana
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-5xl">
-            Your Journey Starts Here
+          <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+            Explore the Heart of Telangana
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            From ancient monuments and spiritual destinations to
-            breathtaking mountains, beaches and wildlife, discover
-            incredible experiences across India.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+            Discover temples, historical landmarks, cultural destinations,
+            architecture and natural beauty across Telangana.
           </p>
 
         </div>
@@ -182,204 +215,71 @@ export default function Home() {
       </section>
 
 
-      {/* Experiences */}
-      <section
-        id="categories"
-        className="bg-slate-50 px-6 py-16"
-      >
+      {/* =====================================================
+          HISTORICAL DESTINATIONS
+      ===================================================== */}
 
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-10">
-
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
-              Discover
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-              Explore by Experience
-            </h2>
-
-          </div>
-
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-            {/* Heritage */}
-            <Link
-              href="/historical"
-              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-           <div className="h-52 overflow-hidden">
-  <img
-    src="/images/heritage.png"
-    alt="Indian heritage"
-    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-  />
-</div>
-
-              <div className="p-6">
-
-                <h3 className="text-xl font-bold text-slate-900">
-                  Heritage
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Explore India's ancient monuments, forts and historical
-                  landmarks.
-                </p>
-
-                <p className="mt-5 font-semibold text-red-500">
-                  Explore →
-                </p>
-
-              </div>
-
-            </Link>
-
-
-            {/* Nature */}
-            <div
-              id="nature"
-              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-             <div className="h-52 overflow-hidden">
-  <img
-    src="/images/nature.png"
-    alt="Indian nature and landscapes"
-    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-  />
-</div>
-
-              <div className="p-6">
-
-                <h3 className="text-xl font-bold text-slate-900">
-                  Nature
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Discover mountains, waterfalls, forests and scenic
-                  landscapes.
-                </p>
-
-                <p className="mt-5 font-semibold text-red-500">
-                  Explore →
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* Wildlife */}
-            <div
-              id="wildlife"
-              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-              <div className="h-52 overflow-hidden">
-  <img
-    src="/images/wildlife.png"
-    alt="Indian wildlife"
-    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-  />
-</div>
-
-              <div className="p-6">
-
-                <h3 className="text-xl font-bold text-slate-900">
-                  Wildlife
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Experience India's incredible wildlife and natural
-                  habitats.
-                </p>
-
-                <p className="mt-5 font-semibold text-red-500">
-                  Explore →
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* Spiritual */}
-            <div
-              id="spiritual"
-              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-              <div className="h-52 overflow-hidden">
-  <img
-    src="/images/spiritual.png"
-    alt="Indian spiritual destination"
-    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-  />
-</div>
-
-              <div className="p-6">
-
-                <h3 className="text-xl font-bold text-slate-900">
-                  Spiritual
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Visit India's famous temples and spiritual destinations.
-                </p>
-
-                <p className="mt-5 font-semibold text-red-500">
-                  Explore →
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* Popular Historical Places */}
       {historicalPlaces.length > 0 && (
-        <section className="bg-white px-6 py-20">
+
+        <section
+          id="experiences"
+          className="bg-slate-50 px-6 py-20"
+        >
 
           <div className="mx-auto max-w-7xl">
 
-            <div className="mb-10">
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
+              Explore Heritage
+            </p>
 
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
-                Must Visit
-              </p>
+            <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+              Historical Destinations
+            </h2>
 
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-                Popular Historical Places
-              </h2>
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Explore forts, monuments, ancient architecture and historic
+              destinations across Telangana.
+            </p>
 
-            </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
 
-              {historicalPlaces.slice(0, 3).map((place) => (
+              {historicalPlaces.slice(0, 6).map((place) => (
+
                 <Link
                   key={place.slug}
                   href={`/places/${place.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                  className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
                 >
 
-                  <div className="flex h-56 items-center justify-center bg-gradient-to-br from-amber-100 to-orange-50">
+                  {/* Image */}
 
-                    <span className="text-7xl transition group-hover:scale-110">
-                      🏛️
-                    </span>
+                  <div className="relative h-52 overflow-hidden bg-slate-100">
+
+                    {place.hero ? (
+
+                      <Image
+                        src={place.hero}
+                        alt={place.name_en || place.name}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+
+                    ) : (
+
+                      <div className="flex h-full items-center justify-center bg-slate-100">
+                        <span className="text-6xl">
+                          🏛️
+                        </span>
+                      </div>
+
+                    )}
 
                   </div>
+
+
+                  {/* Information */}
 
                   <div className="p-6">
 
@@ -398,6 +298,7 @@ export default function Home() {
                   </div>
 
                 </Link>
+
               ))}
 
             </div>
@@ -405,12 +306,20 @@ export default function Home() {
           </div>
 
         </section>
+
       )}
 
 
-      {/* Popular Temples */}
+      {/* =====================================================
+          POPULAR TEMPLES
+      ===================================================== */}
+
       {temples.length > 0 && (
-        <section className="bg-slate-50 px-6 py-20">
+
+        <section
+          id="temples"
+          className="bg-white px-6 py-20"
+        >
 
           <div className="mx-auto max-w-7xl">
 
@@ -422,22 +331,56 @@ export default function Home() {
               Popular Temples
             </h2>
 
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Explore important temples and pilgrimage destinations
+              throughout Telangana.
+            </p>
+
+
             <div className="mt-10 grid gap-6 md:grid-cols-3">
 
-              {temples.map((temple) => (
+              {temples.slice(0, 6).map((temple) => (
+
                 <Link
                   key={temple.slug}
                   href={`/places/${temple.slug}`}
-                  className="group overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                  className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
                 >
 
-                  <div className="flex h-52 items-center justify-center bg-gradient-to-br from-orange-100 to-yellow-50">
+                  {/* =================================================
+                      TEMPLE IMAGE
+                  ================================================= */}
 
-                    <span className="text-7xl transition group-hover:scale-110">
-                      🛕
-                    </span>
+                  <div className="relative h-52 overflow-hidden bg-slate-100">
+
+                    {temple.hero ? (
+
+                      <Image
+                        src={temple.hero}
+                        alt={temple.name_en || temple.name}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+
+                    ) : (
+
+                      <div className="flex h-full items-center justify-center bg-gradient-to-br from-orange-100 to-yellow-50">
+
+                        <span className="text-7xl">
+                          🛕
+                        </span>
+
+                      </div>
+
+                    )}
 
                   </div>
+
+
+                  {/* =================================================
+                      TEMPLE INFORMATION
+                  ================================================= */}
 
                   <div className="p-6">
 
@@ -456,6 +399,7 @@ export default function Home() {
                   </div>
 
                 </Link>
+
               ))}
 
             </div>
@@ -463,10 +407,161 @@ export default function Home() {
           </div>
 
         </section>
+
       )}
 
 
-      {/* Footer */}
+      {/* =====================================================
+          CATEGORIES
+      ===================================================== */}
+
+      <section
+        id="categories"
+        className="bg-slate-50 px-6 py-20"
+      >
+
+        <div className="mx-auto max-w-7xl">
+
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
+            Explore More
+          </p>
+
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+            Plan Your Telangana Journey
+          </h2>
+
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+
+
+            {/* Historical */}
+
+            <Link
+              href="/historical"
+              className="group rounded-2xl bg-white p-8 ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
+            >
+
+              <div className="text-5xl">
+                🏛️
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+                Historical Places
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                Explore forts, monuments and historic destinations
+                across Telangana.
+              </p>
+
+              <p className="mt-5 font-semibold text-red-500">
+                Explore →
+              </p>
+
+            </Link>
+
+
+            {/* Temples */}
+
+            <a
+              href="#temples"
+              className="group rounded-2xl bg-white p-8 ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
+            >
+
+              <div className="text-5xl">
+                🛕
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+                Temples
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                Discover important temples and spiritual destinations
+                throughout Telangana.
+              </p>
+
+              <p className="mt-5 font-semibold text-red-500">
+                Explore →
+              </p>
+
+            </a>
+
+
+            {/* Trip Planning */}
+
+            <Link
+              href="/historical"
+              className="group rounded-2xl bg-white p-8 ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
+            >
+
+              <div className="text-5xl">
+                🗺️
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+                Plan Your Trip
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                Find destinations, travel information and useful
+                details for planning your journey.
+              </p>
+
+              <p className="mt-5 font-semibold text-red-500">
+                Start Planning →
+              </p>
+
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          CALL TO ACTION
+      ===================================================== */}
+
+      <section className="bg-slate-900 px-6 py-20 text-white">
+
+        <div className="mx-auto max-w-5xl text-center">
+
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-yellow-400">
+            Start Exploring
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            Your Telangana Journey Starts Here
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            Explore historical landmarks, temples and cultural
+            destinations across Telangana.
+          </p>
+
+          <div className="mt-8">
+
+            <Link
+              href="/historical"
+              className="inline-block rounded-lg bg-red-500 px-8 py-3.5 font-semibold text-white transition hover:bg-red-600"
+            >
+              Explore Destinations →
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          FOOTER
+      ===================================================== */}
+
       <footer className="bg-slate-950 px-6 py-12 text-center text-white">
 
         <h2 className="text-xl font-bold">
